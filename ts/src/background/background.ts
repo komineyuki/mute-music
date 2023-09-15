@@ -7,6 +7,7 @@ import {
 import { kWindowNames, kGameClassIds } from "../consts";
 
 import RunningGameInfo = overwolf.games.RunningGameInfo;
+
 import AppLaunchTriggeredEvent = overwolf.extensions.AppLaunchTriggeredEvent;
 
 // The background controller holds all of the app's background logic - hence its name. it has

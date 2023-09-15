@@ -26,7 +26,7 @@ h1 {
 #logs {
   display: flex;
   justify-content: space-between;
-  flex: 0 0 auto;
+  flex: 1 1 50%;
   width: calc(100% - 210px);
 }
 
@@ -48,7 +48,7 @@ h1 {
 #other {
   display: flex;
   flex-direction: column;
-  flex: 0 0 auto;
+  flex: 0 0 0;
   width: 210px;
 }
 

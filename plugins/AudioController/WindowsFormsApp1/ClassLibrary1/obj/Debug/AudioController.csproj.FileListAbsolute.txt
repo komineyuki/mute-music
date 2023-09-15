@@ -1,0 +1,7 @@
+C:\Users\yukik\source\repos\WindowsFormsApp1\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+C:\Users\yukik\source\repos\WindowsFormsApp1\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+C:\Users\yukik\source\repos\WindowsFormsApp1\ClassLibrary1\bin\Debug\CoreAudio.dll
+C:\Users\yukik\source\repos\WindowsFormsApp1\ClassLibrary1\obj\Debug\AudioController.csproj.CoreCompileInputs.cache
+C:\Users\yukik\source\repos\WindowsFormsApp1\ClassLibrary1\obj\Debug\AudioController.csproj.CopyComplete
+C:\Users\yukik\source\repos\WindowsFormsApp1\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+C:\Users\yukik\source\repos\WindowsFormsApp1\ClassLibrary1\obj\Debug\ClassLibrary1.pdb

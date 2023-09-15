@@ -15,15 +15,24 @@
   },
   "permissions": [
     "Hotkeys",
-    "GameInfo"
+    "GameInfo",
+    "Extensions",
+    "GameControl",
+    "FileSystem"
   ],
   "data": {
+    "extra-objects": {
+      "audio-controller": {
+        "file": "plugins/ClassLibrary1.dll",
+        "class": "AudioController.AudioController"
+      }
+    },
     "start_window": "background",
     "hotkeys": {
       "sample_app_ts_showhide": {
         "title": "Show/Hide In-Game Window",
         "action-type": "toggle",
-        "default": "Ctrl+F"
+        "default": "Alt+F"
       }
     },
     "protocol_override_domains": {
@@ -53,12 +62,12 @@
         "transparent": true,
         "override_on_update": true,
         "size": {
-          "width": 1212,
-          "height": 699
+          "width": 900,
+          "height": 300
         },
         "min_size": {
-          "width": 1212,
-          "height": 699
+          "width": 900,
+          "height": 300
         }
       },
       "in_game": {
@@ -70,12 +79,16 @@
         "transparent": true,
         "override_on_update": true,
         "size": {
-          "width": 1212,
-          "height": 699
+          "width": 900,
+          "height": 300
         },
         "min_size": {
-          "width": 1212,
-          "height": 699
+          "width": 900,
+          "height": 300
+        },
+        "max_size": {
+          "width": 900,
+          "height": 300
         }
       }
     },
