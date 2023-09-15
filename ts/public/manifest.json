@@ -30,9 +30,9 @@
     "start_window": "background",
     "hotkeys": {
       "sample_app_ts_showhide": {
-        "title": "Show/Hide In-Game Window",
+        "title": "Show/Hide In-Game Windowa",
         "action-type": "toggle",
-        "default": "Alt+F"
+        "default": "Ctrl+F"
       }
     },
     "protocol_override_domains": {
@@ -62,12 +62,16 @@
         "transparent": true,
         "override_on_update": true,
         "size": {
-          "width": 900,
-          "height": 300
+          "width": 450,
+          "height": 200
         },
         "min_size": {
-          "width": 900,
-          "height": 300
+          "width": 450,
+          "height": 200
+        },
+        "max_size": {
+          "width": 450,
+          "height": 200
         }
       },
       "in_game": {
@@ -75,20 +79,20 @@
         "in_game_only": true,
         "focus_game_takeover": "ReleaseOnHidden",
         "focus_game_takeover_release_hotkey": "sample_app_ts_showhide",
-        "resizable": true,
+        "resizable": false,
         "transparent": true,
         "override_on_update": true,
         "size": {
           "width": 900,
-          "height": 300
+          "height": 500
         },
         "min_size": {
           "width": 900,
-          "height": 300
+          "height": 500
         },
         "max_size": {
           "width": 900,
-          "height": 300
+          "height": 500
         }
       }
     },

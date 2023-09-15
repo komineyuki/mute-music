@@ -63,6 +63,8 @@ class InGame extends AppWindow {
   // Special events will be highlighted in the event log
   private onNewEvents(e) {
     const shouldHighlight = e.events.some(event => {
+      this.detectPlayOrPause(event);
+
       switch (event.name) {
         case 'kill':
         case 'death':
@@ -133,6 +135,62 @@ class InGame extends AppWindow {
 
     return (info && info.isRunning && info.classId) ? info.classId : null;
   }
+
+  private detectPlayOrPause(event){
+    if(event.name == "death" && event.data != 0){
+      this.playMusic();
+      return;
+    }
+
+    switch(event.name){
+      case "match_end":
+        this.playMusic();
+        return;
+      case "match_start":
+        this.playMusic();
+        return;
+    }
+
+
+  }
+
+  private playMusic() {
+    var pluginInstance = null;
+    overwolf.extensions.current.getExtraObject("audio-controller", (result) => {
+      try{
+        if (result.success) {
+          pluginInstance = result.object;
+          pluginInstance.play();
+        }else{
+        }
+      }catch(e){
+      }
+    });
+  }
+
+  private pauseMusic() {
+    var pluginInstance = null;
+    overwolf.extensions.current.getExtraObject("audio-controller", (result) => {
+      try{
+        if (result.success) {
+          pluginInstance = result.object;
+          pluginInstance.pause();
+        }else{
+        }
+      }catch(e){
+      }
+    });
+  }
 }
+
+const switchOuter = document.querySelector(".switch_outer");
+const toggleSwitch = document.querySelector(".toggle_switch");
+
+//クリックでacitveクラスを追加/削除
+switchOuter.addEventListener("click", () => {
+    switchOuter.classList.toggle("active");
+    toggleSwitch.classList.toggle("active");
+});
+
 
 InGame.instance().run();
