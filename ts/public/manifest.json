@@ -32,7 +32,7 @@
       "sample_app_ts_showhide": {
         "title": "Show/Hide In-Game Windowa",
         "action-type": "toggle",
-        "default": "Ctrl+F"
+        "default": "Alt+F"
       }
     },
     "protocol_override_domains": {

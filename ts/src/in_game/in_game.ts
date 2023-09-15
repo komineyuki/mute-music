@@ -63,8 +63,7 @@ class InGame extends AppWindow {
   // Special events will be highlighted in the event log
   private onNewEvents(e) {
     const shouldHighlight = e.events.some(event => {
-      this.detectPlayOrPause(event);
-
+      
       switch (event.name) {
         case 'kill':
         case 'death':
@@ -128,6 +127,8 @@ class InGame extends AppWindow {
     if (shouldAutoScroll) {
       log.scrollTop = log.scrollHeight;
     }
+
+    this.detectPlayOrPause(data);
   }
 
   private async getCurrentGameClassId(): Promise<number | null> {
@@ -136,61 +137,68 @@ class InGame extends AppWindow {
     return (info && info.isRunning && info.classId) ? info.classId : null;
   }
 
-  private detectPlayOrPause(event){
-    if(event.name == "death" && event.data != 0){
-      this.playMusic();
-      return;
-    }
-
-    switch(event.name){
-      case "match_end":
+  private detectPlayOrPause(data){
+    if(data.hasOwnProperty("events")){
+      if(data.name == "death" && data.data != 0){
+        console.log("DETECT: events.death");
         this.playMusic();
         return;
-      case "match_start":
+      }
+
+      if(data.name == "match_start"){
+        console.log("DETECT: events.match_start");
         this.playMusic();
         return;
+      }
     }
 
-
+    if(data.hasOwnProperty("match_info")){
+      if(data["match_info"].hasOwnProperty("round_phase")){
+        const current = data["match_info"]["round_phase"];
+        console.log('DETECT: match_info.round_phase=' + data["match_info"]["round_phase"]);
+        switch(current){
+          case "shopping": this.playMusic(); return;
+          case "combat": this.pauseMusic(); return;
+          case "end":
+          case "game_end":
+             this.playMusic(); return;
+        }
+      }
+    }
   }
 
-  private playMusic() {
+  private playMusic() {try{
     var pluginInstance = null;
     overwolf.extensions.current.getExtraObject("audio-controller", (result) => {
-      try{
+      
         if (result.success) {
           pluginInstance = result.object;
           pluginInstance.play();
         }else{
         }
-      }catch(e){
+      
+    });}catch(e){
+      console.log("ERROR: " + e);
       }
-    });
   }
 
-  private pauseMusic() {
+  private pauseMusic() {try{
     var pluginInstance = null;
     overwolf.extensions.current.getExtraObject("audio-controller", (result) => {
-      try{
+      
         if (result.success) {
           pluginInstance = result.object;
           pluginInstance.pause();
         }else{
         }
-      }catch(e){
+      
+    });}catch(e){
+      console.log("ERROR: " + e);
       }
-    });
   }
 }
 
-const switchOuter = document.querySelector(".switch_outer");
-const toggleSwitch = document.querySelector(".toggle_switch");
 
-//クリックでacitveクラスを追加/削除
-switchOuter.addEventListener("click", () => {
-    switchOuter.classList.toggle("active");
-    toggleSwitch.classList.toggle("active");
-});
 
 
 InGame.instance().run();

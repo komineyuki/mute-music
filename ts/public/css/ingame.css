@@ -26,7 +26,7 @@ h1 {
 #logs {
   display: flex;
   justify-content: space-between;
-  flex: 1 1 50%;
+  flex: 0 0 auto;
   width: calc(100% - 210px);
 }
 
@@ -48,7 +48,7 @@ h1 {
 #other {
   display: flex;
   flex-direction: column;
-  flex: 0 0 0;
+  flex: 0 0 auto;
   width: 210px;
 }
 
@@ -137,36 +137,4 @@ button.logCopy {
 button.logCopy:hover {
   background: #8d8d8d;
   color: #ffffff;
-}
-
-
-.switch_outer {
-  width: 120px;
-  height: 60px;
-  background-color: lightgray;
-  border-radius: calc(infinity * 1px);
-  cursor: pointer;
-  transition: background-color .2s ease-in-out;
-}
-
-.switch_outer.active {
-  background-color: #51E373;
-}
-
-.toggle_switch {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  position: absolute;
-  background-color: white;
-  top: 0;
-  bottom: 0;
-  left: 5px;
-  margin: auto;
-  box-shadow: 1px 1px 7px #B7B7B7, -1px -1px 4px #CECECE inset;
-  transition: left .3s ease-in-out;
-}
-
-.toggle_switch.active {
-  left: 65px;
 }
