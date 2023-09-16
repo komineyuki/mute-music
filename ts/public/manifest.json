@@ -83,16 +83,16 @@
         "transparent": true,
         "override_on_update": true,
         "size": {
-          "width": 900,
-          "height": 500
+          "width": 400,
+          "height": 130
         },
         "min_size": {
-          "width": 900,
-          "height": 500
+          "width": 400,
+          "height": 130
         },
         "max_size": {
-          "width": 900,
-          "height": 500
+          "width": 400,
+          "height": 130
         }
       }
     },

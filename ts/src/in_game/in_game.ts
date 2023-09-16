@@ -17,14 +17,14 @@ import WindowState = overwolf.windows.WindowStateEx;
 class InGame extends AppWindow {
   private static _instance: InGame;
   private _gameEventsListener: OWGamesEvents;
-  private _eventsLog: HTMLElement;
-  private _infoLog: HTMLElement;
+  // private _eventsLog: HTMLElement;
+  // private _infoLog: HTMLElement;
 
   private constructor() {
     super(kWindowNames.inGame);
 
-    this._eventsLog = document.getElementById('eventsLog');
-    this._infoLog = document.getElementById('infoLog');
+    // this._eventsLog = document.getElementById('eventsLog');
+    // this._infoLog = document.getElementById('infoLog');
 
     this.setToggleHotkeyBehavior();
     this.setToggleHotkeyText();
@@ -54,10 +54,12 @@ class InGame extends AppWindow {
 
       this._gameEventsListener.start();
     }
+
+
   }
 
   private onInfoUpdates(info) {
-    this.logLine(this._infoLog, info, false);
+    this.logLine(info,);
   }
 
   // Special events will be highlighted in the event log
@@ -78,7 +80,7 @@ class InGame extends AppWindow {
 
       return false
     });
-    this.logLine(this._eventsLog, e, shouldHighlight);
+    this.logLine( e);
   }
 
   // Displays the toggle minimize/restore hotkey in the window header
@@ -110,23 +112,7 @@ class InGame extends AppWindow {
   }
 
   // Appends a new line to the specified log
-  private logLine(log: HTMLElement, data, highlight) {
-    const line = document.createElement('pre');
-    line.textContent = JSON.stringify(data);
-
-    if (highlight) {
-      line.className = 'highlight';
-    }
-
-    // Check if scroll is near bottom
-    const shouldAutoScroll =
-      log.scrollTop + log.offsetHeight >= log.scrollHeight - 10;
-
-    log.appendChild(line);
-
-    if (shouldAutoScroll) {
-      log.scrollTop = log.scrollHeight;
-    }
+  private logLine(data) {
 
     this.detectPlayOrPause(data);
   }
@@ -138,6 +124,10 @@ class InGame extends AppWindow {
   }
 
   private detectPlayOrPause(data){
+    if(!muteActivated){
+      return;
+    }
+
     if(data.hasOwnProperty("events")){
       if(data.name == "death" && data.data != 0){
         console.log("DETECT: events.death");
@@ -198,7 +188,25 @@ class InGame extends AppWindow {
   }
 }
 
+const switchOuter = document.querySelector(".switch_outer");
+const toggleSwitch = document.querySelector(".toggle_switch");
+var muteActivated = true;
+
+function initMuteActive(){
+  if(localStorage.getItem('activeMute') == null || localStorage.getItem('activeMute') == "true"){
+      switchOuter.classList.toggle("active");
+      toggleSwitch.classList.toggle("active");
+      localStorage.setItem('activeMute', "true");
+  }
+}  
+
+switchOuter.addEventListener("click", () => {
+  var b = switchOuter.classList.toggle("active");
+  toggleSwitch.classList.toggle("active");
+  localStorage.setItem('activeMute', b.toString());
+  muteActivated = b;
+});
 
 
-
+initMuteActive();
 InGame.instance().run();
