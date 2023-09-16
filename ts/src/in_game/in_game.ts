@@ -133,23 +133,28 @@ class InGame extends AppWindow {
       
 
       if(data.hasOwnProperty("events")){
-        if(data.name == "death" && data.data != 0){
-          console.log("DETECT: events.death");
-          this.playMusic();
-          return;
+        switch(data["events"][0]["name"]){
+          case "death": this.playMusic(); return;
+          case "match_end": this.playMusic(); return;
+          case "match_start": this.playMusic(); return;
         }
+        // if(data.name == "death" && data["events"].data != 0){
+        //   console.log("DETECT: events.death");
+        //   this.playMusic();
+        //   return;
+        // }
 
-        if(data.name == "match_start"){
-          console.log("DETECT: events.match_start");
-          this.playMusic();
-          return;
-        }
+        // if(data.name == "match_start"){
+        //   console.log("DETECT: events.match_start");
+        //   this.playMusic();
+        //   return;
+        // }
 
-        if(data.name == "match_end"){
-          console.log("DETECT: events.match_start");
-          this.playMusic();
-          return;
-        }
+        // if(data.name == "match_end"){
+        //   console.log("DETECT: events.match_start");
+        //   this.playMusic();
+        //   return;
+        // }
       }
 
       if(data.hasOwnProperty("match_info")){
@@ -172,7 +177,9 @@ class InGame extends AppWindow {
             this.playMusic();
           }
         }
+
       }
+
     }catch(e){
       console.log("ERROR: " + e.toString());
     }
