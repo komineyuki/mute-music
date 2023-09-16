@@ -6,3 +6,17 @@ import { kWindowNames } from "../consts";
 // Therefore, only the generic AppWindow class is called.
 new AppWindow(kWindowNames.desktop);
 
+const switchOuter = document.querySelector(".switch_outer");
+const toggleSwitch = document.querySelector(".toggle_switch");
+
+if(localStorage.getItem('activeMute') == null || localStorage.getItem('activeMute') == "true"){
+    switchOuter.classList.toggle("active");
+    toggleSwitch.classList.toggle("active");
+    localStorage.setItem('activeMute', "true");
+}
+
+switchOuter.addEventListener("click", () => {
+    var b = switchOuter.classList.toggle("active");
+    toggleSwitch.classList.toggle("active");
+    localStorage.setItem('activeMute', b.toString());
+});

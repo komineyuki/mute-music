@@ -92,3 +92,50 @@ a {
   display: inline-block;
   margin-right: 10px;
 }
+
+
+
+.flex {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+}
+.flex .text {
+  margin: 0 0 0 20px;
+  padding: 0;
+  margin-right: auto;
+}
+
+
+.switch_outer {
+  margin-left: auto;
+  width: 50px;
+  height: 25px;
+  background-color: lightgray;
+  border-radius: calc(infinity * 1px);
+  position: relative;
+  cursor: pointer;
+  transition: background-color .2s ease-in-out;
+}
+
+.toggle_switch {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  background-color: white;
+  top: 0;
+  bottom: 0;
+  left: 5px;
+  margin: auto;
+  box-shadow: 1px 1px 7px #B7B7B7, -1px -1px 4px #CECECE inset;
+  transition: left .15s ease-in-out;
+}
+
+.switch_outer.active {
+  background-color: #51E373;
+}
+
+.toggle_switch.active {
+  left: 25px;
+}

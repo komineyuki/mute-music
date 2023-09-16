@@ -63,15 +63,15 @@
         "override_on_update": true,
         "size": {
           "width": 450,
-          "height": 200
+          "height": 250
         },
         "min_size": {
           "width": 450,
-          "height": 200
+          "height": 250
         },
         "max_size": {
           "width": 450,
-          "height": 200
+          "height": 250
         }
       },
       "in_game": {
