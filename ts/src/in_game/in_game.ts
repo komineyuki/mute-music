@@ -111,9 +111,7 @@ class InGame extends AppWindow {
     OWHotkeys.onHotkeyDown(kHotkeys.toggle, toggleInGameWindow);
   }
 
-  // Appends a new line to the specified log
   private logLine(data) {
-
     this.detectPlayOrPause(data);
   }
 
@@ -124,67 +122,98 @@ class InGame extends AppWindow {
   }
 
   private detectPlayOrPause(data){
-    if(!muteActivated){
-      return;
-    }
+    try{
 
-    if(data.hasOwnProperty("events")){
-      if(data.name == "death" && data.data != 0){
-        console.log("DETECT: events.death");
-        this.playMusic();
+      console.log("DEBUG: "+ JSON.stringify(data));
+      
+
+      if(!muteActivated){
         return;
       }
+      
 
-      if(data.name == "match_start"){
-        console.log("DETECT: events.match_start");
-        this.playMusic();
-        return;
-      }
-    }
+      if(data.hasOwnProperty("events")){
+        if(data.name == "death" && data.data != 0){
+          console.log("DETECT: events.death");
+          this.playMusic();
+          return;
+        }
 
-    if(data.hasOwnProperty("match_info")){
-      if(data["match_info"].hasOwnProperty("round_phase")){
-        const current = data["match_info"]["round_phase"];
-        console.log('DETECT: match_info.round_phase=' + data["match_info"]["round_phase"]);
-        switch(current){
-          case "shopping": this.playMusic(); return;
-          case "combat": this.pauseMusic(); return;
-          case "end":
-          case "game_end":
-             this.playMusic(); return;
+        if(data.name == "match_start"){
+          console.log("DETECT: events.match_start");
+          this.playMusic();
+          return;
+        }
+
+        if(data.name == "match_end"){
+          console.log("DETECT: events.match_start");
+          this.playMusic();
+          return;
         }
       }
+
+      if(data.hasOwnProperty("match_info")){
+        if(data["match_info"].hasOwnProperty("round_phase")){
+          const current = data["match_info"]["round_phase"];
+          console.log('DETECT: match_info.round_phase=' + current);
+          switch(current){
+            case "shopping": this.playMusic(); return;
+            case "combat": this.pauseMusic(); return;
+            case "end":
+            case "game_end":
+              this.playMusic(); return;
+          }
+        }
+
+        if(data["match_info"].hasOwnProperty("map")){
+          const current = data["match_info"]["map"];
+          console.log('DETECT: match_info.map=' + current);
+          if(current == null){
+            this.playMusic();
+          }
+        }
+      }
+    }catch(e){
+      console.log("ERROR: " + e.toString());
     }
   }
 
-  private playMusic() {try{
-    var pluginInstance = null;
-    overwolf.extensions.current.getExtraObject("audio-controller", (result) => {
-      
-        if (result.success) {
-          pluginInstance = result.object;
-          pluginInstance.play();
-        }else{
-        }
-      
-    });}catch(e){
-      console.log("ERROR: " + e);
-      }
+  private playMusic() {
+    try{
+      var pluginInstance = null;
+      overwolf.extensions.current.getExtraObject("audio-controller", (result) => {
+        
+          if (result.success) {
+            pluginInstance = result.object;
+            try{
+              pluginInstance.play();
+            }catch(e){
+              console.log("ERROR: " + e.toString());
+            }
+          }
+      });
+    }catch(e){
+      console.log("ERROR: " + e.toString());
+    }
   }
 
-  private pauseMusic() {try{
-    var pluginInstance = null;
-    overwolf.extensions.current.getExtraObject("audio-controller", (result) => {
+  private pauseMusic() {
+    try{
+      var pluginInstance = null;
+      overwolf.extensions.current.getExtraObject("audio-controller", (result) => {
       
         if (result.success) {
           pluginInstance = result.object;
-          pluginInstance.pause();
-        }else{
+          try{
+            pluginInstance.pause();
+          }catch(e){
+            console.log("ERROR: " + e.toString());
+          }
         }
-      
-    });}catch(e){
-      console.log("ERROR: " + e);
-      }
+      });
+    }catch(e){
+      console.log("ERROR: " + e.toString());
+    }
   }
 }
 
