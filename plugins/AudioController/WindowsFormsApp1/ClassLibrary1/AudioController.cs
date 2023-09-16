@@ -24,15 +24,36 @@ namespace AudioController
 
         public async void play()
         {
-            var sessionManager = GlobalSystemMediaTransportControlsSessionManager.RequestAsync().GetAwaiter().GetResult();
-            var currentSession = sessionManager.GetCurrentSession();
-            await currentSession.TryPlayAsync();
+            try
+            {
+                var sessionManager = GlobalSystemMediaTransportControlsSessionManager.RequestAsync().GetAwaiter().GetResult();
+                var currentSession = sessionManager.GetCurrentSession();
+                if(currentSession != null)
+                {
+                    await currentSession.TryPlayAsync();
+                }
+            }
+            catch
+            {
+
+            }
+            
         }
         public async void pause()
         {
-            var sessionManager = GlobalSystemMediaTransportControlsSessionManager.RequestAsync().GetAwaiter().GetResult();
-            var currentSession = sessionManager.GetCurrentSession();
-            await currentSession.TryPauseAsync();
+            try
+            {
+                var sessionManager = GlobalSystemMediaTransportControlsSessionManager.RequestAsync().GetAwaiter().GetResult();
+                var currentSession = sessionManager.GetCurrentSession();
+                if(currentSession != null)
+                {
+                    await currentSession.TryPauseAsync();
+                }
+            }
+            catch
+            {
+
+            }
         }
 
     }
