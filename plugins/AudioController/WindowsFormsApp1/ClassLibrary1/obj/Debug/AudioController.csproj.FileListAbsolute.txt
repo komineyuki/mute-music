@@ -5,3 +5,13 @@ C:\Users\yukik\source\repos\WindowsFormsApp1\ClassLibrary1\obj\Debug\AudioContro
 C:\Users\yukik\source\repos\WindowsFormsApp1\ClassLibrary1\obj\Debug\AudioController.csproj.CopyComplete
 C:\Users\yukik\source\repos\WindowsFormsApp1\ClassLibrary1\obj\Debug\ClassLibrary1.dll
 C:\Users\yukik\source\repos\WindowsFormsApp1\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
+C:\Overwolf\Projects\mute-music\plugins\AudioController\WindowsFormsApp1\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+C:\Overwolf\Projects\mute-music\plugins\AudioController\WindowsFormsApp1\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+C:\Overwolf\Projects\mute-music\plugins\AudioController\WindowsFormsApp1\ClassLibrary1\bin\Debug\CoreAudio.dll
+C:\Overwolf\Projects\mute-music\plugins\AudioController\WindowsFormsApp1\ClassLibrary1\obj\Debug\Interop.iTunesLib.dll
+C:\Overwolf\Projects\mute-music\plugins\AudioController\WindowsFormsApp1\ClassLibrary1\obj\Debug\AudioController.csproj.ResolveComReference.cache
+C:\Overwolf\Projects\mute-music\plugins\AudioController\WindowsFormsApp1\ClassLibrary1\obj\Debug\AudioController.csproj.CoreCompileInputs.cache
+C:\Overwolf\Projects\mute-music\plugins\AudioController\WindowsFormsApp1\ClassLibrary1\obj\Debug\AudioController.csproj.CopyComplete
+C:\Overwolf\Projects\mute-music\plugins\AudioController\WindowsFormsApp1\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+C:\Overwolf\Projects\mute-music\plugins\AudioController\WindowsFormsApp1\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
+C:\Overwolf\Projects\mute-music\plugins\AudioController\WindowsFormsApp1\ClassLibrary1\obj\Debug\AudioController.csproj.AssemblyReference.cache

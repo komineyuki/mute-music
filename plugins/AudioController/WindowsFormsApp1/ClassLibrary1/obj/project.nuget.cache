@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "q1MHv/Yf55oqELlBQonuunWo80EmIWKOwZ9+adj9yaQ38PhDFjznRJDM28X/pTyNm04tdP1dMrysOtJtHpSZvQ==",
+  "dgSpecHash": "gw5YzGB/AfgHzXqdxyTx8+8O4fT9nXP+Vs4VeogqbZY26W6t2aGx9CusRrbJ8fLkKpT+VQdgX7FUBRK7hSuNwA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\yukik\\source\\repos\\WindowsFormsApp1\\ClassLibrary1\\AudioController.csproj",
+  "projectFilePath": "C:\\Overwolf\\Projects\\mute-music\\plugins\\AudioController\\WindowsFormsApp1\\ClassLibrary1\\AudioController.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\yukik\\.nuget\\packages\\coreaudio\\1.37.0\\coreaudio.1.37.0.nupkg.sha512",
     "C:\\Users\\yukik\\.nuget\\packages\\microsoft.windows.sdk.contracts\\10.0.22621.755\\microsoft.windows.sdk.contracts.10.0.22621.755.nupkg.sha512",

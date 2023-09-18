@@ -1351,11 +1351,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\yukik\\source\\repos\\WindowsFormsApp1\\ClassLibrary1\\AudioController.csproj",
+      "projectUniqueName": "C:\\Overwolf\\Projects\\mute-music\\plugins\\AudioController\\WindowsFormsApp1\\ClassLibrary1\\AudioController.csproj",
       "projectName": "AudioController",
-      "projectPath": "C:\\Users\\yukik\\source\\repos\\WindowsFormsApp1\\ClassLibrary1\\AudioController.csproj",
+      "projectPath": "C:\\Overwolf\\Projects\\mute-music\\plugins\\AudioController\\WindowsFormsApp1\\ClassLibrary1\\AudioController.csproj",
       "packagesPath": "C:\\Users\\yukik\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\yukik\\source\\repos\\WindowsFormsApp1\\ClassLibrary1\\obj\\",
+      "outputPath": "C:\\Overwolf\\Projects\\mute-music\\plugins\\AudioController\\WindowsFormsApp1\\ClassLibrary1\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [

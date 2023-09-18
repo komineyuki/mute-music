@@ -25,8 +25,14 @@ namespace WindowsFormsApp1
         private void button1_Click(object sender, EventArgs e)
         {
             AudioController.AudioController a = new AudioController.AudioController();
-            a.pause();
+            a.PlayITunes();
             
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AudioController.AudioController a = new AudioController.AudioController();
+            a.PauseITunes();
         }
     }
 }

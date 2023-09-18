@@ -12,7 +12,8 @@ namespace AudioController
 {
     public class AudioController
     {
-        public bool isPlaying()
+
+        public bool IsPlaying()
         {
             var sessionManager = GlobalSystemMediaTransportControlsSessionManager.RequestAsync().GetAwaiter().GetResult();
             var currentSession = sessionManager.GetCurrentSession();
@@ -22,7 +23,7 @@ namespace AudioController
             return playbackStatus == GlobalSystemMediaTransportControlsSessionPlaybackStatus.Playing;
         }
 
-        public async void play()
+        public async void Play()
         {
             try
             {
@@ -31,6 +32,7 @@ namespace AudioController
                 if(currentSession != null)
                 {
                     await currentSession.TryPlayAsync();
+                    return;
                 }
             }
             catch
@@ -39,7 +41,7 @@ namespace AudioController
             }
             
         }
-        public async void pause()
+        public async void Pause()
         {
             try
             {
@@ -48,12 +50,42 @@ namespace AudioController
                 if(currentSession != null)
                 {
                     await currentSession.TryPauseAsync();
+                    return;
                 }
             }
-            catch
+            catch 
             {
 
             }
+        }
+
+        public void PlayITunes()
+        {
+            try
+            {
+                iTunesLib.iTunesAppClass iTunesApp = new iTunesLib.iTunesAppClass();
+                iTunesApp.Play();
+            }
+            catch (Exception e) {
+                Console.WriteLine(e.ToString());
+            }
+
+            return;
+        }
+
+        public void PauseITunes()
+        {
+            try
+            {
+                iTunesLib.iTunesAppClass iTunesApp = new iTunesLib.iTunesAppClass();
+                iTunesApp.Pause();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+
+            return;
         }
 
     }
