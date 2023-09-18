@@ -63,15 +63,15 @@
         "override_on_update": true,
         "size": {
           "width": 450,
-          "height": 250
+          "height": 300
         },
         "min_size": {
           "width": 450,
-          "height": 250
+          "height": 300
         },
         "max_size": {
           "width": 450,
-          "height": 250
+          "height": 300
         }
       },
       "in_game": {
@@ -83,16 +83,16 @@
         "transparent": true,
         "override_on_update": true,
         "size": {
-          "width": 400,
-          "height": 130
+          "width": 450,
+          "height": 300
         },
         "min_size": {
-          "width": 400,
-          "height": 130
+          "width": 450,
+          "height": 300
         },
         "max_size": {
-          "width": 400,
-          "height": 130
+          "width": 450,
+          "height": 300
         }
       }
     },

@@ -38,7 +38,13 @@ a {
   margin-top: 20px;
 }
 
+font{
+  
+user-select: none;
+}
+
 .desktopTop p {
+  user-select: none;
   font-style: normal;
   font-weight: normal;
   font-size: 15px;

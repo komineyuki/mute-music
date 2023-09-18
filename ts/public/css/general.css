@@ -9,6 +9,10 @@
   font-style: inherit;
 }
 
+img {
+  -webkit-user-drag: none;
+  }
+
 body {
   font-family: "Roboto", sans-serif;
 }
@@ -17,6 +21,7 @@ h1,
 h2 {
   margin: 0;
   cursor: default;
+  user-select: none;
 }
 
 button {
@@ -64,7 +69,7 @@ button:focus {
 
 .flex {
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   display: flex;
 }
 .flex .text {
@@ -74,8 +79,77 @@ button:focus {
 }
 
 
-.app_type_background {    
-  width: 300px;
-  height: 200px;
+.app_type_background {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 370px;
+  height: 80px;
   border-radius: 10px;
+  background-color: rgb(26, 26, 26);
+  box-shadow: 1px 1px 7px rgb(26, 26, 26), -1px -1px 4px rgb(26, 26, 26);
+}
+
+.app_type_standard{
+  margin: auto;
+  width: 270;
+  height: 70px;
+  border-radius: 10px;
+  background-color: rgba(0, 255, 21, 0);
+  box-shadow: 1px 1px 7px rgb(26, 26, 26), -1px -1px 4px rgb(26, 26, 26);
+  transition: background-color .15s ease-in-out;
+}
+
+.app_type_standard.active{
+  background-color: #3aad30;
+}
+
+.app_type_itunes{
+  margin: auto;
+  width: 50;
+  height: 70px;
+  border-radius: 10px;
+  background-color: rgb(0, 0, 0, 0);
+  box-shadow: 1px 1px 7px rgb(26, 26, 26), -1px -1px 4px rgb(26, 26, 26);
+  transition: background-color .15s ease-in-out;
+}
+.app_type_itunes.active{
+  background-color: #3aad30;
+}
+
+.column{
+  place-items: center;
+  display: block;
+  justify-content: space-around;
+}
+
+.row{
+  place-items: center;  
+  display: flex;
+}
+
+.headerDivider {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-left:1px solid #313131; 
+  border-right:1px solid #181818;
+  width: 1;
+  height:60px;
+}
+
+.img_spacer {
+  margin: 0px;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 0 20px;
+  filter: drop-shadow(0 0 0.85rem rgb(0, 0, 0));
+}
+
+.top-margin5px{
+  margin-top: 5px;
+}
+
+.top-margin20px{
+  
+  margin-top: 20px;
 }

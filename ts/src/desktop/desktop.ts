@@ -21,17 +21,31 @@ switchOuter.addEventListener("click", () => {
     localStorage.setItem('activeMute', b.toString());
 });
 
-const itunesSwitchOuter = document.getElementById("itunes-toggle-desktop");
-const itunesToggleSwitch = document.getElementById("itunes-switch-desktop");
+const appTypeStandardBackground = document.getElementById("app_type_standard_background");
+const appTypeITunesBackground = document.getElementById("app_type_itunes_background");
 
 if(localStorage.getItem('activeITunes') != null && localStorage.getItem('activeITunes') == "true"){
-    itunesSwitchOuter.classList.toggle("active");
-    itunesToggleSwitch.classList.toggle("active");
+    appTypeITunesBackground.classList.toggle("active");
     localStorage.setItem('activeITunes', "true");
+}else{
+    appTypeStandardBackground.classList.toggle("active");
+    localStorage.setItem('activeITunes', "false");
 }
 
-itunesSwitchOuter.addEventListener("click", () => {
-    var b = itunesSwitchOuter.classList.toggle("active");
-    itunesToggleSwitch.classList.toggle("active");
-    localStorage.setItem('activeITunes', b.toString());
+appTypeStandardBackground.addEventListener("click", () => {
+    if(localStorage.getItem('activeITunes') == null || localStorage.getItem('activeITunes') == "false"){
+        return;
+    }
+    var b = appTypeStandardBackground.classList.toggle("active");
+    appTypeITunesBackground.classList.toggle("active");
+    localStorage.setItem('activeITunes', "false");
+});
+
+appTypeITunesBackground.addEventListener("click", () => {
+    if(localStorage.getItem('activeITunes') != null && localStorage.getItem('activeITunes') == "true"){
+        return;
+    }
+    var b = appTypeStandardBackground.classList.toggle("active");
+    appTypeITunesBackground.classList.toggle("active");
+    localStorage.setItem('activeITunes', "true");
 });

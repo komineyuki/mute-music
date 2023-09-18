@@ -247,8 +247,8 @@ const switchOuter = document.getElementById("active-toggle-in-game");
 const toggleSwitch = document.querySelector(".toggle_switch");
 var muteActivated = false;
 
-const itunesSwitchOuter = document.getElementById("itunes-toggle-in-game");
-const itunesToggleSwitch = document.getElementById("itunes-switch-in-game");
+const appTypeStandardBackground = document.getElementById("app_type_standard_background");
+const appTypeITunesBackground = document.getElementById("app_type_itunes_background");
 var activeITunes = false;
 
 function initMuteActive(){
@@ -260,9 +260,13 @@ function initMuteActive(){
   }
 
   if(localStorage.getItem('activeITunes') != null && localStorage.getItem('activeITunes') == "true"){
-    itunesSwitchOuter.classList.toggle("active");
-    itunesToggleSwitch.classList.toggle("active");
+    appTypeITunesBackground.classList.toggle("active");
+    localStorage.setItem('activeITunes', "true");
+  }else{
+    appTypeStandardBackground.classList.toggle("active");
+    localStorage.setItem('activeITunes', "false");
   }
+
 }
 
 switchOuter.addEventListener("click", () => {
@@ -272,11 +276,23 @@ switchOuter.addEventListener("click", () => {
   muteActivated = b;
 });
 
-itunesSwitchOuter.addEventListener("click", () => {
-  var b = itunesSwitchOuter.classList.toggle("active");
-  itunesToggleSwitch.classList.toggle("active");
-  localStorage.setItem('activeITunes', b.toString());
-  activeITunes = b;
+
+appTypeStandardBackground.addEventListener("click", () => {
+    if(localStorage.getItem('activeITunes') == null || localStorage.getItem('activeITunes') == "false"){
+        return;
+    }
+    var b = appTypeStandardBackground.classList.toggle("active");
+    appTypeITunesBackground.classList.toggle("active");
+    localStorage.setItem('activeITunes', "false");
+});
+
+appTypeITunesBackground.addEventListener("click", () => {
+    if(localStorage.getItem('activeITunes') != null && localStorage.getItem('activeITunes') == "true"){
+        return;
+    }
+    var b = appTypeStandardBackground.classList.toggle("active");
+    appTypeITunesBackground.classList.toggle("active");
+    localStorage.setItem('activeITunes', "true");
 });
 
 
