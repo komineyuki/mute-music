@@ -186,6 +186,15 @@ class InGame extends AppWindow {
   }
 
   private playMusic() {
+
+    function play(pluginInstance){
+      if(activeITunes){
+        pluginInstance.PlayITunes();
+      }else{
+        pluginInstance.Play();
+      }
+    }
+
     try{
       var pluginInstance = null;
       overwolf.extensions.current.getExtraObject("audio-controller", (result) => {
@@ -193,7 +202,7 @@ class InGame extends AppWindow {
           if (result.success) {
             pluginInstance = result.object;
             try{
-              pluginInstance.play();
+              play(pluginInstance);
             }catch(e){
               console.log("ERROR: " + e.toString());
             }
@@ -205,6 +214,14 @@ class InGame extends AppWindow {
   }
 
   private pauseMusic() {
+    function pause(pluginInstance){
+      if(activeITunes){
+        pluginInstance.PauseITunes();
+      }else{
+        pluginInstance.Pause();
+      }
+    }
+
     try{
       var pluginInstance = null;
       overwolf.extensions.current.getExtraObject("audio-controller", (result) => {
@@ -212,7 +229,7 @@ class InGame extends AppWindow {
         if (result.success) {
           pluginInstance = result.object;
           try{
-            pluginInstance.pause();
+            pause(pluginInstance);
           }catch(e){
             console.log("ERROR: " + e.toString());
           }
@@ -222,25 +239,44 @@ class InGame extends AppWindow {
       console.log("ERROR: " + e.toString());
     }
   }
+
+  
 }
 
-const switchOuter = document.querySelector(".switch_outer");
+const switchOuter = document.getElementById("active-toggle-in-game");
 const toggleSwitch = document.querySelector(".toggle_switch");
-var muteActivated = true;
+var muteActivated = false;
+
+const itunesSwitchOuter = document.getElementById("itunes-toggle-in-game");
+const itunesToggleSwitch = document.getElementById("itunes-switch-in-game");
+var activeITunes = false;
 
 function initMuteActive(){
   if(localStorage.getItem('activeMute') == null || localStorage.getItem('activeMute') == "true"){
       switchOuter.classList.toggle("active");
       toggleSwitch.classList.toggle("active");
       localStorage.setItem('activeMute', "true");
+      muteActivated = true;
   }
-}  
+
+  if(localStorage.getItem('activeITunes') != null && localStorage.getItem('activeITunes') == "true"){
+    itunesSwitchOuter.classList.toggle("active");
+    itunesToggleSwitch.classList.toggle("active");
+  }
+}
 
 switchOuter.addEventListener("click", () => {
   var b = switchOuter.classList.toggle("active");
   toggleSwitch.classList.toggle("active");
   localStorage.setItem('activeMute', b.toString());
   muteActivated = b;
+});
+
+itunesSwitchOuter.addEventListener("click", () => {
+  var b = itunesSwitchOuter.classList.toggle("active");
+  itunesToggleSwitch.classList.toggle("active");
+  localStorage.setItem('activeITunes', b.toString());
+  activeITunes = b;
 });
 
 

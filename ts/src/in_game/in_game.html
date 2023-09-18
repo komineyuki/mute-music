@@ -12,7 +12,7 @@
   <!-- -------------------------------- Header ------------------------------- -->
 
   <header id="header" class="app-header">
-    <img src="../../img/header_icon.svg" />
+    <img src="../../img/header_icon.png" />
     <h1>Mute Music</h1>
     <h1 class="hotkey-text">
       <kbd id="hotkey"></kbd>
@@ -29,10 +29,17 @@
   <main>
     <div class="desktopTop">
       <div class="flex">
-        <div class="switch_outer">
-          <div class="toggle_switch"></div>
+        <div class="switch_outer" id="active-toggle-in-game">
+          <div class="toggle_switch" id="toggle_switch-in-game"></div>
         </div>
         <p class="text">: Activate mute music in game</p>
+      </div>
+
+      <div class="flex">
+        <div class="switch_outer" id="itunes-toggle-in-game">
+          <div class="toggle_switch" id="itunes-switch-in-game"></div>
+        </div>
+        <p class="text">: Activate if you use iTunes</p>
       </div>
 
     </div>

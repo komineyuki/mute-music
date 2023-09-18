@@ -14,7 +14,7 @@
   <!-- -------------------------------- Header ------------------------------- -->
 
   <header id="header" class="app-header">
-    <img src="../../img/header_icon.svg" />
+    <img src="../../img/header_icon.png" />
     <h1>Mute Music</h1>
     <div class="window-controls-group">
       <button id="minimizeButton" class="window-control window-control-minimize" />
@@ -33,10 +33,17 @@
       </p>
 
       <div class="flex">
-        <div class="switch_outer">
-          <div class="toggle_switch"></div>
+        <div class="switch_outer" id="active-toggle-desktop">
+          <div class="toggle_switch" id="toggle-switch-desktop"></div>
         </div>
         <p class="text">: Activate mute music in game</p>
+      </div>
+
+      <div class="flex">
+        <div class="switch_outer" id="itunes-toggle-desktop">
+          <div class="toggle_switch" id="itunes-switch-desktop"></div>
+        </div>
+        <p class="text">: Activate if you use iTunes</p>
       </div>
 
       
