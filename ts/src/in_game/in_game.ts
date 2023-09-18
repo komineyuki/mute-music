@@ -262,6 +262,7 @@ function initMuteActive(){
   if(localStorage.getItem('activeITunes') != null && localStorage.getItem('activeITunes') == "true"){
     appTypeITunesBackground.classList.toggle("active");
     localStorage.setItem('activeITunes', "true");
+    activeITunes = true;
   }else{
     appTypeStandardBackground.classList.toggle("active");
     localStorage.setItem('activeITunes', "false");
@@ -293,6 +294,7 @@ appTypeITunesBackground.addEventListener("click", () => {
     var b = appTypeStandardBackground.classList.toggle("active");
     appTypeITunesBackground.classList.toggle("active");
     localStorage.setItem('activeITunes', "true");
+    activeITunes = b;
 });
 
 
