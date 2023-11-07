@@ -54,26 +54,6 @@
         "background_optimization": false,
         "is_background_page": true
       },
-      "desktop": {
-        "file": "desktop.html",
-        "desktop_only": true,
-        "native_window": true,
-        "resizable": true,
-        "transparent": true,
-        "override_on_update": true,
-        "size": {
-          "width": 450,
-          "height": 300
-        },
-        "min_size": {
-          "width": 450,
-          "height": 300
-        },
-        "max_size": {
-          "width": 450,
-          "height": 300
-        }
-      },
       "in_game": {
         "file": "in_game.html",
         "in_game_only": true,

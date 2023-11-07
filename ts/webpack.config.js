@@ -8,7 +8,6 @@ const
 module.exports = env => ({
     entry: {
         background: './src/background/background.ts',
-        desktop: './src/desktop/desktop.ts',
         in_game: './src/in_game/in_game.ts'
     },
     devtool: 'inline-source-map',
@@ -37,11 +36,6 @@ module.exports = env => ({
             template: './src/background/background.html',
             filename: path.resolve(__dirname, './dist/background.html'),
             chunks: ['background']
-        }),
-        new HtmlWebpackPlugin({
-            template: './src/desktop/desktop.html',
-            filename: path.resolve(__dirname, './dist/desktop.html'),
-            chunks: ['desktop']
         }),
         new HtmlWebpackPlugin({
             template: './src/in_game/in_game.html',
